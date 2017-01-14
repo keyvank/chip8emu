@@ -7,6 +7,7 @@
 #include <fstream>
 #include <algorithm>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
