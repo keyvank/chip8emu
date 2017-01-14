@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <chrono>
 #include <thread>
 #include <SDL2/SDL.h>
@@ -76,6 +77,7 @@ void chip8::cycle(){
 	unsigned short ins = memory[pc];
 	ins = ins << 8;
 	ins = ins | memory[pc+1];
+	cout<<hex<<ins<<endl;
 	
 	switch(ins & 0xF000){
 		case 0x0000:
@@ -346,6 +348,7 @@ void chip8::cycle(){
 					if(pressed_key){
 						v[vx_reg_index]=pressed_key;
 						pressed_key=0;
+						pc += 2;
 					}
 				}
 				else if(command == 0x0015){
